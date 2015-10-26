@@ -8795,7 +8795,76 @@ button.close {
   margin-top: 10px;
 }
 
+/* line 2, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn.active {
+  background: #fff;
+  color: transparent;
+}
+
+/* line 7, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn {
+  color: #fff;
+  background: transparent;
+  border: solid;
+  border-width: 1px;
+  border-color: #fff;
+}
+/* line 13, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn:hover {
+  background: #fff;
+  color: #4D2A4B;
+}
+
+/* line 2, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn.active {
+  background: #fff;
+  color: transparent;
+}
+
+/* line 7, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn {
+  color: #fff;
+  background: transparent;
+  border: solid;
+  border-width: 1px;
+  border-color: #fff;
+}
+/* line 13, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/base.scss */
+.cur-btn:hover {
+  background: #fff;
+  color: #4D2A4B;
+}
+
 /* line 4, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/welcome.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 7, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/welcome.scss */
 .hero {
   background: blue;
+  height: 100%;
+  background: #54c2b9;
+  background: -moz-linear-gradient(left, #54c2b9 0%, #ff24f0 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #54c2b9), color-stop(100%, #ff24f0));
+  background: -webkit-linear-gradient(left, #54c2b9 0%, #ff24f0 100%);
+  background: -o-linear-gradient(left, #54c2b9 0%, #ff24f0 100%);
+  background: -ms-linear-gradient(left, #54c2b9 0%, #ff24f0 100%);
+  background: linear-gradient(to right, #54c2b9 0%, #ff24f0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54c2b9', endColorstr='#ff24f0', GradientType=1 );
+}
+/* line 18, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/welcome.scss */
+.hero .welcome-message {
+  margin-top: 0px;
+  padding-top: 0px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  text-align: center;
+}
+/* line 26, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/welcome.scss */
+.hero .welcome-message h1, .hero .welcome-message h2 {
+  margin-top: 0px;
+  padding-top: 0px;
 }
