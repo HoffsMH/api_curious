@@ -1,0 +1,17 @@
+
+.cur-btn.active {
+  background: #fff;
+  color: rgba(0,0,0,0)
+}
+
+.cur-btn {
+  color: #fff;
+  background: rgba(0,0,0,0);
+  border: solid;
+  border-width: 1px;
+  border-color: #fff;
+  &:hover {
+    background: #fff;
+    color: #4D2A4B;
+  }
+}
