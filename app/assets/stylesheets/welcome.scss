@@ -1,3 +1,31 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;
+}
+.hero {
+  background: blue;
+  height: 100%;
+  background: rgba(84,194,185,1);
+  background: -moz-linear-gradient(left, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(84,194,185,1)), color-stop(100%, rgba(255,36,240,1)));
+  background: -webkit-linear-gradient(left, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
+  background: -o-linear-gradient(left, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
+  background: -ms-linear-gradient(left, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
+  background: linear-gradient(to right, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54c2b9', endColorstr='#ff24f0', GradientType=1 );
+  .welcome-message {
+    margin-top: 0px;
+    padding-top: 0px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    text-align: center;
+    h1,h2 {
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+  }
+}

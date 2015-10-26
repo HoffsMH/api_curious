@@ -8794,3 +8794,8 @@ button.close {
 .rails-bootstrap-forms-error-summary {
   margin-top: 10px;
 }
+
+/* line 4, /Users/Hoffs/dev/turingwork/3module/solo_assignments/api_curious/app/assets/stylesheets/welcome.scss */
+.hero {
+  background: blue;
+}
