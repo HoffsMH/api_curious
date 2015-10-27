@@ -39,7 +39,7 @@ gem "omniauth-twitter"
 
 group :development, :test do
   gem 'pry'
-  gem 'byebug'
+  gem 'pry-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
