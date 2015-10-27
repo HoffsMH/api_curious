@@ -3,7 +3,10 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-body">
-          here is your logged in content
+          <h2>
+            <%= @user_presenter.user.screen_name %>
+          </h2>
+          <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
         </div>
       </div>
     </div>
