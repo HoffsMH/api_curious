@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
 
     user
   end
+
+  def self.oauth_token
+    nil
+  end
+
+  def self.oauth_token_secret
+    nil
+  end
 end
