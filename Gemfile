@@ -29,6 +29,7 @@ gem 'figaro'
 
 gem 'faker'
 gem 'factory_girl_rails'
+gem "omniauth-twitter"
 
 
 
