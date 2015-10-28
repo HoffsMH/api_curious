@@ -8,7 +8,7 @@ RSpec.feature "UserCanViewFeeds", type: :feature, vcr: true do
 
       expect(page.status_code).to eq(200)
       click_link "Login with Twitter"
-      expect(page).to have_content("Hemsworth on Miley Cyrus:")
+      expect(page).to have_content("Update:Officials confirm rogue #blimp is on the ground ")
     end
   end
 end
