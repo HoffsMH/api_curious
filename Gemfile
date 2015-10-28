@@ -45,6 +45,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'database_cleaner'
 end
 
 group :development do
