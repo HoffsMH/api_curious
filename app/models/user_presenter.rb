@@ -1,7 +1,6 @@
 class UserPresenter
   attr_accessor :user
-  def initialize(user=nil)
-    binding.pry
+  def initialize(user=User)
     @user = user
   end
 
