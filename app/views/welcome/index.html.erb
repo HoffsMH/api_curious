@@ -1,3 +1,8 @@
+<nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li> <%= link_to "Log out", logout_path %></li>
+  </ul>
+</nav>
 <div class="hero">
   <div class="container-fluid">
     <div class="row">
@@ -16,21 +21,21 @@
           </div>
         </div>
       </div>
-    </div>
 
-
-
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h2>
-            Fee
-          </h2>
-          <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>
+              Fee
+            </h2>
+            <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+          </div>
         </div>
       </div>
     </div>
 
+
+
+
   </div>
-</div>
 </div>

@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html, body {
-  height: 100%;
-}
-.hero {
   background: blue;
   height: 100%;
   background: rgba(84,194,185,1);
@@ -15,6 +12,10 @@ html, body {
   background: -ms-linear-gradient(left, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
   background: linear-gradient(to right, rgba(84,194,185,1) 0%, rgba(255,36,240,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54c2b9', endColorstr='#ff24f0', GradientType=1 );
+
+}
+.hero {
+  height: 100%;
   .welcome-message {
     margin-top: 0px;
     padding-top: 0px;
