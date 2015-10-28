@@ -3,10 +3,13 @@ require 'omniauth'
 require 'capybara/rspec'
 require 'webmock/rspec'
 require 'simplecov'
+require 'vcr'
+require 'pry'
 
 SimpleCov.start 'rails'
-RSpec.configure do |config|
 
+
+RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -43,8 +46,8 @@ def stub_omniauth
       }
     },
     credentials: {
-      token: "pizza",
-      secret: "secretpizza"
+      token: ENV['twitter_credentials_token'],
+      secret: ENV['twitter_credentials_secret']
     },
     info: {
       image: "image_url"

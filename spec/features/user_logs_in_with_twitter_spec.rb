@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "user loggs in with twitter" do
   context "when not logged in" do
 
-    scenario "can login" do
+    scenario "can login" ,vcr: true do
       visit '/'
       expect(page.status_code).to eq(200)
 
