@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "UserCanViewFeeds", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
+  context "when logged in" do
+    it "shows our feed" do
+      stub_omniauth
+      visit "/"
+    end
+  end
 end
