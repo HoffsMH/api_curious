@@ -25,9 +25,13 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <h2>
-              Fee
+              Post a tweet
             </h2>
-            <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+              <%= bootstrap_form_for :tweet,   do |f|%>
+                <%= f.text_area :text %>
+                <%= f.submit "Post" %>
+              <% end %>
+
           </div>
         </div>
       </div>
