@@ -1,8 +1,9 @@
 require "factory_girl_rails"
 require 'omniauth'
 require 'capybara/rspec'
-
+require 'webmock/rspec'
 require 'simplecov'
+
 SimpleCov.start 'rails'
 RSpec.configure do |config|
 
