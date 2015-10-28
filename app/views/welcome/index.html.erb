@@ -9,10 +9,9 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h2>
-              <%= @user_presenter.user.screen_name %>
-            </h2>
-            <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+            <h1>
+              <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %><%= link_to @user_presenter.user.screen_name, "https://twitter.com/#{@user_presenter.user.screen_name}" %>
+            </h1>
             <div class="row">
               <div class="col-md-12">
                 <%= render partial: "tweets/tweet", collection: @user_presenter.feed %>
