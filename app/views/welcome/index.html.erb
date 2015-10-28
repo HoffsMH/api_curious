@@ -1,15 +1,36 @@
 <div class="hero">
   <div class="container-fluid">
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h2>
-            <%= @user_presenter.user.screen_name %>
-          </h2>
-          <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>
+              <%= @user_presenter.user.screen_name %>
+            </h2>
+            <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= @user_presenter.feed %>
+              </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2>
+              Fee
+            </h2>
+            <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-
