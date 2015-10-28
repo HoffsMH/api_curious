@@ -32,6 +32,7 @@ gem 'factory_girl_rails'
 gem "omniauth-twitter"
 gem 'twitter'
 
+gem 'webmock'
 
 
 
