@@ -11,4 +11,20 @@ class ApplicationController < ActionController::Base
   def current_user?
     current_user.is_a? User
   end
+
+  def verify_user
+    user_path[current_user?].call
+  end
+
+  def user_path
+    {
+      true  => lambda {nil},
+      false => lambda {redirect_to root_path}
+    }
+  end
+
+  def twitter_api
+    TwitterApi.new
+  end
+
 end
