@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   def create
     render plain: request.env["omniauth.auth"]
-    user = User.from_omniauth(request.env["omniauth.auth"])
-    load_session(user)
-    redirect_to root_path
+    # user = User.from_omniauth(request.env["omniauth.auth"])
+    # load_session(user)
+    # redirect_to root_path
   end
 
   def destroy
