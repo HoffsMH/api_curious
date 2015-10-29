@@ -53,7 +53,14 @@ def stub_omniauth
         friends_count:  user.following_count,
         statuses_count: user.tweets_count,
         name: "Horace",
-        screen_name: user.screen_name
+        screen_name: user.screen_name,
+        entities: {
+          url: {
+            urls: [{
+              expanded_url: user.website
+            }]
+          }
+        }
       }
     }
 

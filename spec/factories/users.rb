@@ -8,5 +8,7 @@ FactoryGirl.define do
     followers_count "27"
     following_count "20"
     tweets_count "402"
+    website "test-website.com"
+    location "test-location"
   end
 end
