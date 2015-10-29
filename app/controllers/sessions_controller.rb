@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    render text: request.env["omniauth.auth"]
+    render plain: request.env["omniauth.auth"]
     user = User.from_omniauth(request.env["omniauth.auth"])
     load_session(user)
     redirect_to root_path
