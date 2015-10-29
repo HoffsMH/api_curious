@@ -27,4 +27,13 @@ class UserPresenter
   def favorited?(tweet)
     favorites.include?(tweet)
   end
+
+  def favorite_button(tweet)
+    button_string = {
+      true => "unfavorite",
+      false => "favorite"
+    }
+
+    button_string[favorited?(tweet)]
+  end
 end

@@ -1,2 +1,7 @@
-<%= @user_presenter.favorites.first.to_s  %>
-<span class="glyphicon glyphicon-star"></span>
+<%= bootstrap_form_for :favorite, url: favorite_tweet_path  do |f|%>
+<%= f.hidden_field :tweet_id, value: tweet.id%>
+<%= f.hidden_field :favorited, value: @user_presenter.favorited?(tweet) %>
+<span class="glyphicon glyphicon-star">
+<%= f.submit @user_presenter.favorite_button(tweet)  %></span>
+<% end %>
+

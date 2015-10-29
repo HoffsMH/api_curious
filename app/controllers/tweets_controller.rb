@@ -11,6 +11,12 @@ class TweetsController < ApplicationController
     redirect_to root_path
   end
 
+  def favorite
+    toggle_favorite
+
+    redirect_to root_path
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:text)
@@ -20,4 +26,23 @@ class TweetsController < ApplicationController
     tweet_params[:text]
   end
 
+  def favorite_params
+    params.require(:favorite).permit(:tweet_id, :favorited)
+  end
+
+  def favorited
+    favorite_params[:favorited]
+  end
+
+  def tweet_id
+    favorite_params[:tweet_id]
+  end
+
+  def toggle_favorite
+    toggle = {
+      "false" => lambda { twitter_api.client(current_user).favorite(tweet_id) },
+      "true" => lambda { twitter_api.client(current_user).unfavorite(tweet_id) }
+    }
+    toggle[favorited].call
+  end
 end
