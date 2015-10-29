@@ -30,7 +30,6 @@ class TweetsController < ApplicationController
   def unfollow
     begin
       flash[:notice] = "unfollowed"
-      binding.pry
       twitter_api.client(current_user).unfollow(unfollow_params[:user_screen_name])
     rescue StandardError => e
       flash[:notice] = e.to_s
