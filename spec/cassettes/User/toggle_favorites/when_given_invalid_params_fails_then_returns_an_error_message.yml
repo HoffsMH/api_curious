@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/favorites/destroy.json
+    body:
+      encoding: UTF-8
+      string: id=0
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_CONSUMER_KEY>", oauth_nonce="43a9e5a432bbb8fac31b10c2f89be166",
+        oauth_signature="0Yk0kSyiP%2FFdFdUYUgH7bf3C9uE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1446136679", oauth_token="<CREDENTIALS_TOKEN>", oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 29 Oct 2015 16:37:59 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 29 Oct 2015 16:37:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144613667941993073; Domain=.twitter.com; Path=/; Expires=Sat,
+        28-Oct-2017 16:37:59 UTC
+      - lang=en; Path=/
+      Status:
+      - 404 Not Found
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 58952034591ffce49592a7a4ddcd8d86
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '15'
+      X-Transaction:
+      - ca209751be36abb4
+      X-Tsa-Request-Body-Time:
+      - '0'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"code":144,"message":"No status found with that ID."}]}'
+    http_version: 
+  recorded_at: Thu, 29 Oct 2015 16:37:59 GMT
+recorded_with: VCR 2.9.3

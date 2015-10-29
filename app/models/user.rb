@@ -39,17 +39,17 @@ class User < ActiveRecord::Base
   end
 
   def toggle_favorite(favorite_params)
-    favorited        = favorite_params[:favorited]
+    favorited         = favorite_params[:favorited]
     favorite_tweet_id = favorite_params[:tweet_id]
-    toggle            = {
-      "false" => lambda { client.favorite(favorite_tweet_id) },
+    toggle            = Hash.new(lambda {"Refresh the page and try again"})
 
-      "true"  => lambda { client.unfavorite(favorite_tweet_id) }
-    }
+    toggle["false"]   = lambda { client.favorite(favorite_tweet_id)
+                                "Favorited"}
+     toggle["true"]   = lambda { client.unfavorite(favorite_tweet_id)
+                                "Unfavorited"}
 
     begin
-      toggle[favorited].call
-      return "Favorited"
+      return toggle[favorited].call
     rescue StandardError => e
       return e.to_s
     end
