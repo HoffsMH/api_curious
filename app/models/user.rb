@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include TweetActions
   def self.from_omniauth(auth_info)
     user = User.find_or_create_by( uid: auth_info.uid)
 

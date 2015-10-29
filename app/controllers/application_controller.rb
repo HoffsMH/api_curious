@@ -26,9 +26,4 @@ class ApplicationController < ActionController::Base
                         }
     }
   end
-
-  def twitter_api
-    TwitterApi.new
-  end
-
 end
