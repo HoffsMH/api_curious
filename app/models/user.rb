@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
     user.oauth_token        = auth_info.credentials.token
     user.oauth_token_secret = auth_info.credentials.secret
     user.followers_count    = auth_info.extra.followers_count
-    user.followering_count  = auth_info.extra.friends_count
+    user.following_count    = auth_info.extra.friends_count
+    user.tweet_count        = auth_info.extra.statuses_count
     user.save
 
     user
