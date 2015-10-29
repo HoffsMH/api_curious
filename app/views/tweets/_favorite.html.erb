@@ -1,3 +1,4 @@
+<br>
 <%= bootstrap_form_for :favorite, url: favorite_tweet_path  do |f|%>
 <%= f.hidden_field :tweet_id, value: tweet.id%>
 <%= f.hidden_field :favorited, value: @user_presenter.favorited?(tweet) %>
