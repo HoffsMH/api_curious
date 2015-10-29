@@ -7,7 +7,10 @@
           <%= image_tag tweet.user.profile_image_uri, class: "img-responsive" %>
         </div>
         <div class="col-md-9">
-          <h3> <%= link_to tweet.user.screen_name, tweet.user.uri.to_s %></h3>
+          <div class="tweet-user-title">
+            <h3> <%= link_to tweet.user.name, tweet.user.uri.to_s %></h3>
+            <h6>(@<%= tweet.user.screen_name %>)</h6>
+          </div>
           <%= tweet.full_text %><br>
         </div>
       </div>

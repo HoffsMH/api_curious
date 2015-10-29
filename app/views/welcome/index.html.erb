@@ -26,8 +26,9 @@
               <div class="col-md-12">
                 <div class="panel-body">
                   <h1>
-                    <%= link_to @user_presenter.user.screen_name, "https://twitter.com/#{@user_presenter.user.screen_name}" %>
+                    <%= link_to @user_presenter.user.name, "https://twitter.com/#{@user_presenter.user.screen_name}" %>
                   </h1>
+                  <h6>(@<%= @user_presenter.user.screen_name %>)</h6>
                 </div>
               </div>
             </div>
@@ -67,18 +68,48 @@
       </div>
 
       <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h2>
-              Post a tweet
-            </h2>
-            <%= bootstrap_form_for :tweet, url: new_tweet_path  do |f|%>
-            <%= f.text_area :text, maxlength: 140, size: 40  %>
-            <%= f.submit "Post" %>
-            <% end %>
-
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2>
+                  Post a tweet
+                </h2>
+                <%= bootstrap_form_for :tweet, url: new_tweet_path  do |f|%>
+                <%= f.text_area :text, maxlength: 140, size: 40  %>
+                <div class="col-md-5 col-centered"><%= f.submit "Post", class: "btn btn-primary col-md-12" %></div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    location:<br>
+                    <h4> some fake shit for noe<%#= @user_presenter.user. %></h4>
+                  </div>
+                  <div class="col-md-6">
+                    website:<br>
+                    <h4> some fake website <%#= @user_presenter.user.following_count %></h4>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    here be following list:
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
 
