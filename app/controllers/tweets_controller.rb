@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   def create
     begin
       flash[:notice] = "Posted"
-      something = twitter_api.client(current_user).update(tweet_text)
+      twitter_api.client(current_user).update(tweet_text)
     rescue StandardError => e
       flash[:notice] = e.to_s
     end
@@ -18,7 +18,12 @@ class TweetsController < ApplicationController
   end
 
   def retweet
-    twitter_api.client(current_user).retweet(retweet_params[:tweet_id])
+    begin
+      flash[:notice] = "retweeted"
+      twitter_api.client(current_user).retweet(retweet_params[:tweet_id])
+    rescue StandardError => e
+      flash[:notice] = e.to_s
+    end
     redirect_to root_path
   end
 
