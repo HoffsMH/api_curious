@@ -4,7 +4,7 @@
   </ul>
 </nav>
 <div class="container-fluid">
-  <div class=" flash-row row text-center">
+  <div class="flash-row row text-center">
     <div class="flash-notice">
       <%= flash[:notice] %>
     </div>
@@ -16,9 +16,40 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h1>
-              <%= image_tag @user_presenter.profile_picture, class: "img-responsive" %><%= link_to @user_presenter.user.screen_name, "https://twitter.com/#{@user_presenter.user.screen_name}" %>
-            </h1>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="panel-body">
+                  <h1>
+                    <%= link_to @user_presenter.user.screen_name, "https://twitter.com/#{@user_presenter.user.screen_name}" %>
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="row flex-row">
+              <div class="col-md-3">
+                <div class="panel-body avatar-area">
+                  <%= image_tag @user_presenter.profile_picture, class: "img-responsive col-centered" %>
+                </div>
+              </div>
+              <div class="col-md-9 stats-row">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-3">
+                      tweets:<br>
+                      <h4>23</h4>
+                    </div>
+                    <div class="col-md-3">
+                      Following:<br>
+                      <h4>23</h4>
+                    </div>
+                    <div class="col-md-3">
+                      Followers:<br>
+                      <h4>23</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <%= render partial: "tweets/tweet", collection: @user_presenter.feed %>

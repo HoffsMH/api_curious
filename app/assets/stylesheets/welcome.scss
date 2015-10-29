@@ -30,12 +30,18 @@ html, body {
 
     }
   }
-  h1,h2 {
-    text-align: center;
-  }
+
 }
 .flash-row {
   margin-top:10px;
   margin-bottom:10px;
   background: rgba(255,255,255, 0.5)
+}
+
+flex-row {
+  display:flex;
+}
+
+.avatar-area {
+
 }
