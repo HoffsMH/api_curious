@@ -27,6 +27,17 @@ class TweetsController < ApplicationController
     redirect_to root_path
   end
 
+  def unfollow
+    begin
+      flash[:notice] = "unfollowed"
+      binding.pry
+      twitter_api.client(current_user).unfollow(unfollow_params[:user_screen_name])
+    rescue StandardError => e
+      flash[:notice] = e.to_s
+    end
+    redirect_to root_path
+  end
+
 
   private
   def retweet_params
@@ -35,6 +46,10 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:text)
+  end
+
+  def unfollow_params
+    params.require(:unfollow).permit(:user_screen_name)
   end
 
   def tweet_text

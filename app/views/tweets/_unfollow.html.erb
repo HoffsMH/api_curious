@@ -1,0 +1,8 @@
+<div class="col-md-4" >
+<%= bootstrap_form_for :unfollow, url: unfollow_tweet_path  do |f|%>
+<%= f.hidden_field :user_screen_name, value: tweet.user.screen_name %>
+<span class="glyphicon glyphicon-remove">
+<%= f.submit "unfollow"  %></span>
+<% end %>
+</div>
+
