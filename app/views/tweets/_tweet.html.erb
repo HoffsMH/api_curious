@@ -2,7 +2,7 @@
   <div class="col-md-12>">
 
       <div class="panel-body">
-        <h3> <%= tweet.user.screen_name %></h3>
+        <h3> <%= link_to tweet.user.screen_name, tweet.user.uri.to_s %></h3>
         <%= tweet.full_text %>
       </div>
 
