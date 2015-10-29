@@ -1,0 +1,8 @@
+<div class="col-md-4" >
+<%= bootstrap_form_for :retweet, url: retweet_tweet_path  do |f|%>
+<%= f.hidden_field :tweet_id, value: tweet.id%>
+<span class="glyphicon glyphicon-retweet">
+<%= f.submit "retweet"  %></span>
+<% end %>
+</div>
+

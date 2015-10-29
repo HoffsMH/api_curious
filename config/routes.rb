@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   post '/tweets/new', to: 'tweets#create', as: :new_tweet
   post '/tweets/favorite', to: 'tweets#favorite', as: :favorite_tweet
+  post '/tweets/retweet', to: 'tweets#retweet', as: :retweet_tweet
 end
