@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     user.uid                = auth_info.uid
     user.screen_name        = auth_info.extra.raw_info.screen_name
     user.profile_image_url  = auth_info.info.image
+    user.location           = auth_info.info.location
+    user.website            = auth_info.info.urls.Website
     user.oauth_token        = auth_info.credentials.token
     user.oauth_token_secret = auth_info.credentials.secret
     user.followers_count    = auth_info.extra.raw_info.followers_count
