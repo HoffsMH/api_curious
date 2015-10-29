@@ -31,13 +31,6 @@ RSpec.describe User, type: :model, vcr: true do
 
       message = user.unfollow(invalid_params)
       expect(message).to eq("Sorry, that page does not exist.")
-
-      invalid_params = {
-                         user_screen_name: "MongoDB"
-                       }
-
-      message = user.unfollow(invalid_params)
-      expect(message).to eq("No status found with that ID.")
     end
   end
 
