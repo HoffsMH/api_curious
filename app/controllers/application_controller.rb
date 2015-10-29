@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
   def user_path
     {
       true  => lambda {nil},
-      false => lambda {redirect_to root_path}
+      false => lambda {
+                        flash[:notice] = "Please Log in first."
+                        redirect_to root_path
+
+                        }
     }
   end
 
