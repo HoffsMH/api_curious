@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     user.profile_image_url  = auth_info.info.image
     user.oauth_token        = auth_info.credentials.token
     user.oauth_token_secret = auth_info.credentials.secret
+    user.followers_count    = auth_info.extra.followers_count
     user.save
 
     user

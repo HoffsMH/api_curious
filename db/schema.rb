@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027022745) do
+ActiveRecord::Schema.define(version: 20151029020255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151027022745) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "profile_image_url"
+    t.string   "followers_count"
   end
 
 end
