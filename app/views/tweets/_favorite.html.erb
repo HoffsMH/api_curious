@@ -1,4 +1,4 @@
-<div class="col-md-4" >
+<div class="col-md-3" >
 <%= bootstrap_form_for :favorite, url: favorite_tweet_path  do |f|%>
 <%= f.hidden_field :tweet_id, value: tweet.id%>
 <%= f.hidden_field :favorited, value: @user_presenter.favorited?(tweet) %>
@@ -6,4 +6,3 @@
 <%= f.submit @user_presenter.favorite_button(tweet)  %></span>
 <% end %>
 </div>
-
