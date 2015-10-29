@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     user = User.find_or_create_by( uid: auth_info.uid)
 
     user.name               = auth_info.extra.raw_info.name
+    user.uid                = auth_info.uid
     user.screen_name        = auth_info.extra.raw_info.screen_name
     user.profile_image_url  = auth_info.info.image
     user.oauth_token        = auth_info.credentials.token

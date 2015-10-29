@@ -4,12 +4,13 @@ RSpec.feature "user loggs in with twitter", vcr: true do
   context "when not logged in" do
 
     scenario "can login" do
+      user = create(:user)
       stub_omniauth
       visit '/'
       expect(page.status_code).to eq(200)
 
       click_link "Login with Twitter"
-      expect(page).to have_content("worace")
+      expect(page).to have_content(user.screen_name)
     end
   end
 

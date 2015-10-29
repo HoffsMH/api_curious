@@ -35,22 +35,27 @@ RSpec.configure do |config|
   end
 end
 def stub_omniauth
+  user = create(:user)
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+    uid: user.uid,
     provider: 'twitter',
-    extra: {
-      raw_info: {
-        user_id: "1234",
-        name: "Horace",
-        screen_name: "worace",
-      }
-    },
     credentials: {
-      token: ENV['twitter_credentials_token'],
-      secret: ENV['twitter_credentials_secret']
+      token: user.oauth_token,
+      secret: user.oauth_token_secret
     },
     info: {
-      image: "image_url"
+      image: user.profile_image_url
+    },
+    extra: {
+      raw_info: {
+        followers_count: user.followers_count,
+        friends_count:  user.following_count,
+        statuses_count: user.tweets_count,
+        name: "Horace",
+        screen_name: user.screen_name
+      }
     }
+
   })
 end
