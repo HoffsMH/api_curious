@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include TweetActions
   def self.from_omniauth(auth_info)
     user = User.find_or_create_by( uid: auth_info.uid)
 
@@ -15,6 +16,53 @@ class User < ActiveRecord::Base
 
 
     user
+  end
+  def client
+    @client ||= TwitterApi.new.client(self)
+  end
+
+  def retweet(retweet_params)
+    begin
+      client.retweet(retweet_params[:tweet_id])
+      return "retweeted"
+    rescue StandardError => e
+      return e.to_s
+    end
+  end
+
+  def tweet(tweet_params)
+    begin
+      client.update(tweet_params[:text])
+      return "Posted"
+    rescue StandardError => e
+      return e.to_s
+    end
+  end
+
+  def toggle_favorite(favorite_params)
+    favorited        = favorite_params[:favorited]
+    favorite_tweet_id = favorite_params[:tweet_id]
+    toggle            = {
+      "false" => lambda { client.favorite(favorite_tweet_id) },
+
+      "true"  => lambda { client.unfavorite(favorite_tweet_id) }
+    }
+
+    begin
+      toggle[favorited].call
+      return "Favorited"
+    rescue StandardError => e
+      return e.to_s
+    end
+  end
+
+  def unfollow(unfollow_params)
+    begin
+      client.unfollow(unfollow_params[:user_screen_name])
+      return"unfollowed"
+    rescue StandardError => e
+      return  e.to_s
+    end
   end
 
   def self.oauth_token

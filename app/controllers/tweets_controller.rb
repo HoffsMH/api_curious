@@ -2,38 +2,22 @@ class TweetsController < ApplicationController
 
   before_action :verify_user
   def create
-    begin
-      flash[:notice] = "Posted"
-      twitter_api.client(current_user).update(tweet_text)
-    rescue StandardError => e
-      flash[:notice] = e.to_s
-    end
+    flash[:notice] = current_user.tweet(tweet_params)
     redirect_to root_path
   end
 
   def favorite
-    toggle_favorite
-
+    flash[:notice] = current_user.toggle_favorite(favorite_params)
     redirect_to root_path
   end
 
   def retweet
-    begin
-      flash[:notice] = "retweeted"
-      twitter_api.client(current_user).retweet(retweet_params[:tweet_id])
-    rescue StandardError => e
-      flash[:notice] = e.to_s
-    end
+    flash[:notice] = current_user.retweet(retweet_params)
     redirect_to root_path
   end
 
   def unfollow
-    begin
-      flash[:notice] = "unfollowed"
-      twitter_api.client(current_user).unfollow(unfollow_params[:user_screen_name])
-    rescue StandardError => e
-      flash[:notice] = e.to_s
-    end
+    flash[:notice] = current_user.unfollow(unfollow_params)
     redirect_to root_path
   end
 
@@ -51,30 +35,7 @@ class TweetsController < ApplicationController
     params.require(:unfollow).permit(:user_screen_name)
   end
 
-  def tweet_text
-    tweet_params[:text]
-  end
-
   def favorite_params
     params.require(:favorite).permit(:tweet_id, :favorited)
-  end
-
-  def favorited
-    favorite_params[:favorited]
-  end
-
-  def favorite_tweet_id
-    favorite_params[:tweet_id]
-  end
-
-  def toggle_favorite
-    toggle = {
-      "false" => lambda { twitter_api.client(current_user).
-                          favorite(favorite_tweet_id) },
-
-      "true"  => lambda { twitter_api.client(current_user).
-                          unfavorite(favorite_tweet_id) }
-    }
-    toggle[favorited].call
   end
 end
