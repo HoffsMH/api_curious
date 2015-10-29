@@ -1,5 +1,5 @@
 class UserPresenter
-  attr_accessor :user
+  attr_accessor :user, :twitter_api
 
   def initialize(user=User)
     @user = user
