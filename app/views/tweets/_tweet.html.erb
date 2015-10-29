@@ -1,14 +1,23 @@
 <div class="row tweet-outer">
   <div class="col-md-12>">
 
-      <div class="panel-body">
-        <h3> <%= link_to tweet.user.screen_name, tweet.user.uri.to_s %></h3>
-        <%= tweet.full_text %><br>
-        <br>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-2">
+          <%= image_tag tweet.user.profile_image_uri, class: "img-responsive" %>
+        </div>
+        <div class="col-md-9">
+          <h3> <%= link_to tweet.user.screen_name, tweet.user.uri.to_s %></h3>
+          <%= tweet.full_text %><br>
+        </div>
+      </div>
+      <br>
+      <div class="row">
         <%= render partial: "tweets/favorite", locals: {tweet: tweet}  %>
         <%= render partial: "tweets/retweet", locals: {tweet: tweet}  %>
         <%= render partial: "tweets/unfollow", locals: {tweet: tweet}  %>
       </div>
+    </div>
 
   </div>
 </div>
