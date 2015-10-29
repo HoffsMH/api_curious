@@ -7,10 +7,11 @@ class User < ActiveRecord::Base
     user.profile_image_url  = auth_info.info.image
     user.oauth_token        = auth_info.credentials.token
     user.oauth_token_secret = auth_info.credentials.secret
-    user.followers_count    = auth_info.extra.followers_count
-    user.following_count    = auth_info.extra.friends_count
-    user.tweet_count        = auth_info.extra.statuses_count
+    user.followers_count    = auth_info.extra.raw_info.followers_count
+    user.following_count    = auth_info.extra.raw_info.friends_count
+    user.tweets_count       = auth_info.extra.raw_info.statuses_count
     user.save
+
 
     user
   end
