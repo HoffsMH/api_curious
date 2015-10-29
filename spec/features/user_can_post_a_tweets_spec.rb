@@ -10,7 +10,6 @@ RSpec.feature "UserCanPostATweets", type: :feature, vcr: true do
       fill_in "tweet[text]" , with: "This post will never be tweeted"
       click_link_or_button "Post"
       expect(page).to have_content("Posted")
-      expect(page).to have_content("This post will never be tweeted")
     end
   end
 end

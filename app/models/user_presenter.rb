@@ -15,10 +15,11 @@ class UserPresenter
   def feed(twitter_api=@twitter_api)
     begin
       @feed ||= twitter_api.client(@user).home_timeline
-    rescue => e
+    rescue StandardError => e
       nil
     end
   end
+
   def favorites
     @favorites ||= twitter_api.client(@user).favorites
   end
