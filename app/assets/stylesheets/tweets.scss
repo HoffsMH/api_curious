@@ -1,3 +1,11 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.tweet-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    float: right;
+  }
+}
