@@ -11,14 +11,18 @@ RSpec.describe TweetsController, type: :controller do
     end
   end
   context "when calling #create with a user in the session but invalid params" do
-    it "redirects to root and flashes error" do
+    it "redirects to root and flashes error", vcr: true do
       user = create(:user)
+      long_string = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
 
       session[:user_id] = user.id
-      post :create, poop: { poopy: "poopy" }
+      post :create, tweet: { text: long_string }
 
       expect(response).to redirect_to root_path
-      expect(flash[:notice]).to match("Please Log in first.")
+      expect(flash[:notice]).to match("Status is over 140 characters.")
     end
   end
 
