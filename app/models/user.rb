@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
     toggle["false"]   = lambda { client.favorite(favorite_tweet_id)
                                 "Favorited"}
-     toggle["true"]   = lambda { client.unfavorite(favorite_tweet_id)
+    toggle["true"]    = lambda { client.unfavorite(favorite_tweet_id)
                                 "Unfavorited"}
 
     begin
