@@ -40,21 +40,43 @@ class User < ActiveRecord::Base
     end
   end
 
+  class TwitterAction
+    def initialize(client)
+      @client = client
+    end
+  end
+
+  class Unfavourite < TwitterAction
+    def call(id)
+      @client.unfavorite(id)
+      'Favorited'
+    end
+  end
+
+  class Favourite < TwitterAction
+    def call(id)
+      @client.favorite(id)
+      'Unfavourited'
+    end
+  end
+
+  class Refresh < TwitterAction
+    def call(id)
+      "Refresh the page and try again"
+    end
+  end
+
   def toggle_favorite(favorite_params)
     favorited         = favorite_params[:favorited]
     favorite_tweet_id = favorite_params[:tweet_id]
-    toggle            = Hash.new(lambda {"Refresh the page and try again"})
 
-    toggle["false"]   = lambda { client.favorite(favorite_tweet_id)
-                                "Favorited"}
-    toggle["true"]    = lambda { client.unfavorite(favorite_tweet_id)
-                                "Unfavorited"}
 
-    begin
-      return toggle[favorited].call
-    rescue StandardError => e
-      return e.to_s
-    end
+    { 'true'  => Unfavourite.new(client),
+      'false' => Favourite.new(client)
+    }.fetch(favorited, Refresh.new(client))
+      .call(favorite_tweet_id)
+  rescue StandardError => e
+    return e.to_s
   end
 
   def unfollow(unfollow_params)
